@@ -1,0 +1,11 @@
+Checking if Flipkart shoe products price is in ascending order
+Assignment1.java = Main page of automation
+Assignment1SortPrice.java = Checking the elements price is sorted or not
+ReadExcelFile.java = beginning syntax of excel
+Assignment1Definition.java = xpath and function definition are present
+TestNG.xml = for running two testcases simultaneously
+
+
+Step1 - In Assignment1.java  there
+
+which is are running simultaneously, and checking if the price of the product is in
