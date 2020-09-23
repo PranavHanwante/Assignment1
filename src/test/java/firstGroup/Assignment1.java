@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -18,13 +19,14 @@ import java.util.concurrent.TimeUnit;
 
 public class Assignment1 {
 
-    WebDriver driver;
+    ThreadLocal<WebDriver> driver=new ThreadLocal<>();
+
     @Test
     public void test1(){
-     startOperationBegin();
-     System.out.println("test1 = ");
-     Boolean b =   mainOperation();
-     Assert.assertTrue(b);
+        startOperationBegin();
+        System.out.println("test1 = ");
+        Boolean b =   mainOperation();
+        Assert.assertTrue(b);
     }
     @Test
     public void test2(){
@@ -37,16 +39,16 @@ public class Assignment1 {
     public void doStartingOpeartion(String product,String sortItem){
 
         product = product.trim();
-        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"\\src\\test\\resource\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/src/test/resource/chromedriver");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--incognito");
-         driver=new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-        driver.get("https://www.flipkart.com/");
+        driver.set(new ChromeDriver(options));
+        driver.get().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.get().manage().window().maximize();
+        driver.get().get("https://www.flipkart.com/");
 //**********************Pop up cancel*********************
 
-        Assignment1Definition obj1 = new Assignment1Definition(driver);
+        Assignment1Definition obj1 = new Assignment1Definition(driver.get());
         if (obj1.popUpCancel().isDisplayed()){
             obj1.popUpCancel().click();
         }
@@ -67,7 +69,7 @@ public class Assignment1 {
 
 
 //****************Sorting low to high filter***************************
-        List<WebElement> total = driver.findElements(By.xpath("//div[@class='_3ywJNQ']/div"));
+        List<WebElement> total = driver.get().findElements(By.xpath("//div[@class='_3ywJNQ']/div"));
         Iterator<WebElement> itTotal = total.iterator();
         ArrayList a1 = new ArrayList();
         ArrayList a2 = new ArrayList();
@@ -78,13 +80,13 @@ public class Assignment1 {
             temp=temp.trim();
             if(sortItem.equalsIgnoreCase(temp)){
                 position=count;
-                driver.findElement(By.xpath("//div[@class='_3ywJNQ']/div["+position+"]")).click();
+                driver.get().findElement(By.xpath("//div[@class='_3ywJNQ']/div["+position+"]")).click();
                 try {
                     Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                WebDriverWait wait = new WebDriverWait(driver, 10);
+                WebDriverWait wait = new WebDriverWait(driver.get(), 10);
                 wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='_1vC4OE'])[1]")));
 
             }
@@ -105,7 +107,7 @@ public class Assignment1 {
    //////////////////////////******************************//////////////////////////////
 
         //**********price xpath, checking price is in asecding order*****************
-        Assignment1SortPrice obj = new Assignment1SortPrice(driver);
+        Assignment1SortPrice obj = new Assignment1SortPrice(driver.get());
         Boolean orderBoolean;
         obj.getBoolean();
 //        Assert.assertTrue(orderBoolean);
@@ -133,7 +135,7 @@ public class Assignment1 {
 
 
 //****pagination page 2***********
-        Assignment1Definition obj1 = new Assignment1Definition(driver);
+        Assignment1Definition obj1 = new Assignment1Definition(driver.get());
 
         obj1.clickPagination().click();
 
@@ -145,7 +147,7 @@ public class Assignment1 {
         }
 
 
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver.get(), 10);
 //        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='_1vC4OE'])[1]")));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='_1vC4OE'])[1]")));
 
@@ -161,7 +163,7 @@ return orderBoolean;
 
     public void startOperationBegin(){
 
-        ReadExcelFile configuration = new ReadExcelFile(System.getProperty("user.dir") +"\\src\\test\\resource\\assignment_test.xlsx");
+        ReadExcelFile configuration = new ReadExcelFile(System.getProperty("user.dir") +"/src/test/resource/assignment_test.xlsx");
         //  int rows = configuration.getRowCount(0);
         Object[][]signin_credentials = new Object[1][2];
         String product =configuration.getData(0, 0, 0);
