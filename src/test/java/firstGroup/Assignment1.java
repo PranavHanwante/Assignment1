@@ -15,12 +15,25 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class Assignment1 {
 
     ThreadLocal<WebDriver> driver=new ThreadLocal<>();
 
+    @BeforeTest
+    public void begin(){
+        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/src/test/resource/chromedriver.exe");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--incognito");
+        driver.set(new ChromeDriver(options));
+        driver.get().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.get().manage().window().maximize();
+        driver.get().get("https://www.flipkart.com/");
+    }
     @Test
     public void test1(){
         startOperationBegin();
@@ -35,33 +48,68 @@ public class Assignment1 {
         Boolean b =   mainOperation();
         Assert.assertTrue(b);
     }
+//Validate Add to Cart Functionality
+    @Test
+    public void test3(){
+        startOperationBegin();
+        System.out.println("Done startOperationBegin");
+        addProduct();
+
+    }
+
+    public void addProduct(){
+        //getText of shoes 1st
+        //cllick shoes
+        //switch to new tab
+        //select size, add to cart
+        //switch to parent tab
+        //getText of shoes 2nd
+        //cllick shoes 2nd
+        //switch to new tab
+        //select size, add to cart
+        Assignment1Definition obj1 = new Assignment1Definition(driver.get());
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        String shoeOneTextFromList = obj1.getTextOfShoeFirst().getText();
+        System.out.println("shoeOneTextFromList = "+shoeOneTextFromList);
+        obj1.clickFirstShoe().click();
+
+//        Set<String> windows =	driver.getWindowHandles();
+
+        Set<String> windows = getWebDriver().getWindowHandles();
+
+
+        Iterator<String> itrWindows = windows.iterator();
+        System.out.println("itrWindows 1 = "+itrWindows.next());
+        System.out.println("itrWindows 2 = "+itrWindows.next());
+
+
+//        obj1.selectShoeSize().click();
+
+
+
+
+
+    }
+
 
     public void doStartingOpeartion(String product,String sortItem){
+        Assignment1Definition obj1 = new Assignment1Definition(driver.get());
 
         product = product.trim();
-        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/src/test/resource/chromedriver");
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--incognito");
-        driver.set(new ChromeDriver(options));
-        driver.get().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driver.get().manage().window().maximize();
-        driver.get().get("https://www.flipkart.com/");
+
+
 //**********************Pop up cancel*********************
 
-        Assignment1Definition obj1 = new Assignment1Definition(driver.get());
+
         if (obj1.popUpCancel().isDisplayed()){
             obj1.popUpCancel().click();
         }
 
-//Pop up cancel
-//        if(driver.findElement(By.xpath("//div[@class='mCRfo9']/div/div/button")).isDisplayed()){
-//            driver.findElement(By.xpath("//div[@class='mCRfo9']/div/div/button")).click();
-//        }
-
-
 //******************Search Shoes****************************
-//        driver.findElement(By.xpath("//form/div/div/input")).sendKeys(product);
-//        driver.findElement(By.xpath("//button[@class='vh79eN']")).click();
 
         obj1.setShoes().sendKeys(product);
         obj1.clickSearch().click();
@@ -110,29 +158,6 @@ public class Assignment1 {
         Assignment1SortPrice obj = new Assignment1SortPrice(driver.get());
         Boolean orderBoolean;
         obj.getBoolean();
-//        Assert.assertTrue(orderBoolean);
-
-
-
-//        List<WebElement> priceList = driver.findElements(By.xpath("//div[@class='_1vC4OE']"));
-//        Iterator<WebElement> iterate_priceList = priceList.iterator();
-//        while(iterate_priceList.hasNext()){
-////            System.out.println("iterate_priceList = "+(iterate_priceList.next()).getText());
-//            WebElement tempPriceList = iterate_priceList.next();
-//            String singlePriceList = tempPriceList.getText();
-//            String price_without_rupees = singlePriceList.split("\u20B9")[1];
-////            System.out.println("price_without_rupees = "+price_without_rupees);
-//            a1.add(price_without_rupees);
-//        }
-//
-//        a2 = (ArrayList) a1.clone();
-//        Collections.sort(a2);
-//
-//        System.out.println("a1 = "+a1);
-//        System.out.println("a2 = "+a2);
-//        Assert.assertTrue(a1.equals(a2));
-
-
 
 //****pagination page 2***********
         Assignment1Definition obj1 = new Assignment1Definition(driver.get());

@@ -20,12 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18cda8f0-d580-4322-a4d4-0c78c1779bff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/firstGroup/Assignment1Copy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstProject.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/firstProject.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/firstProject.iws" beforeDir="false" afterPath="$PROJECT_DIR$/firstProject.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/firstGroup/Assignment1Definition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/firstGroup/Assignment1Definition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/firstGroup/Assignment1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/firstGroup/Assignment1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/firstGroup/AppTest.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/firstGroup/Assignment1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/firstGroup/Assignment1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/testng.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,7 +259,7 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/resource" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -400,6 +399,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VssConfiguration">
     <CheckoutOptions>
@@ -454,29 +454,33 @@
     <webview flattenPackages="false" showMembers="false" autoscrollToSource="false" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="422" y="165" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600778283836">
+    <state x="422" y="165" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600853796926">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="422" y="165" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1600778283836" />
+    <state x="422" y="165" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1600853796926" />
     <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600769634075">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1600769634075" />
-    <state width="1323" height="66" key="GridCell.Tab.0.bottom" timestamp="1600802543796">
+    <state width="1323" height="36" key="GridCell.Tab.0.bottom" timestamp="1600873023668">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="66" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1600802543796" />
-    <state width="1323" height="66" key="GridCell.Tab.0.center" timestamp="1600802543796">
+    <state width="1323" height="36" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1600873023668" />
+    <state width="1323" height="36" key="GridCell.Tab.0.center" timestamp="1600873023668">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="66" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1600802543796" />
-    <state width="1323" height="66" key="GridCell.Tab.0.left" timestamp="1600802543796">
+    <state width="1323" height="36" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1600873023668" />
+    <state width="1323" height="36" key="GridCell.Tab.0.left" timestamp="1600873023667">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="66" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1600802543796" />
-    <state width="1323" height="66" key="GridCell.Tab.0.right" timestamp="1600802543796">
+    <state width="1323" height="36" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1600873023667" />
+    <state width="1323" height="36" key="GridCell.Tab.0.right" timestamp="1600873023668">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="66" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1600802543796" />
+    <state width="1323" height="36" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1600873023668" />
+    <state x="273" y="140" width="1054" height="686" key="dock-window-1" timestamp="1600870526485">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="273" y="140" width="1054" height="686" key="dock-window-1/0.0.1366.728@0.0.1366.728" timestamp="1600870526485" />
   </component>
 </project>

@@ -14,6 +14,14 @@ public class Assignment1Definition {
 
     By pagination = By.xpath("//div[@class='_2zg3yZ']/nav/a[2]");
 
+    By selectFirstShoe = By.xpath("(//div[@class='_1vC4OE'])[2]");
+    By selectSecondShoe = By.xpath("(//div[@class='_1vC4OE'])[3]");
+
+    By getTextFirstShoe = By.xpath("(//div[@class='_1vC4OE'])[2]/parent::div/parent::a/preceding-sibling::a");
+    By getTextSecondShoe = By.xpath("(//div[@class='_1vC4OE'])[3]/parent::div/parent::a/preceding-sibling::a");
+
+    By clickShoeSize = By.xpath("//li[@id='swatch-0-size']/a");
+
 
     public Assignment1Definition(WebDriver driver) {
         this.driver = driver;
@@ -29,9 +37,14 @@ public class Assignment1Definition {
     public WebElement clickSearch() {
         return driver.findElement(searchShoes);
     }
+    public WebElement clickPagination() {return driver.findElement(pagination);}
+    public WebElement clickFirstShoe() {return driver.findElement(selectFirstShoe);}
+    public WebElement clickSecondShoe() {return driver.findElement(selectSecondShoe);}
 
-    public WebElement clickPagination() {
-        return driver.findElement(pagination);
-    }
+    public WebElement getTextOfShoeFirst() {return driver.findElement(getTextFirstShoe);}
+    public WebElement getTextOfShoeSecond() {return driver.findElement(getTextSecondShoe);}
+
+    public WebElement selectShoeSize() {return driver.findElement(clickShoeSize);}
+
 
 }
