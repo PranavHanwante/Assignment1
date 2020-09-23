@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="18cda8f0-d580-4322-a4d4-0c78c1779bff" name="Default Changelist" comment="" />
+    <list default="true" id="18cda8f0-d580-4322-a4d4-0c78c1779bff" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/firstGroup/Assignment1Copy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstProject.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/firstProject.ipr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstProject.iws" beforeDir="false" afterPath="$PROJECT_DIR$/firstProject.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/firstGroup/Assignment1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/firstGroup/Assignment1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/firstGroup/AppTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/firstGroup/Assignment1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/firstGroup/Assignment1.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -165,6 +190,9 @@
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="HIDE_WARNINGS" value="false" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="HierarchyBrowserManager">
     <option name="SHOW_PACKAGES" value="false" />
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -247,7 +275,7 @@
       <recent name="C:\Users\Pranav\firstProject\src\test\java\firstGroup" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.Assignment1">
+  <component name="RunManager" selected="TestNG.C:/Users/Pranav/firstProject/testng.xml">
     <configuration selected="false" default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -302,8 +330,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="C:/Users/Pranav/firstProject/testng.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="firstProject" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/testng.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.C:/Users/Pranav/firstProject/testng.xml" />
         <item itemvalue="TestNG.Assignment1" />
         <item itemvalue="TestNG.C:/Users/Pranav/firstProject/src/test/resource/testng.xml" />
       </list>
@@ -350,6 +389,17 @@
       <flatten-packages value="false" />
       <is-autoscroll-to-source value="true" />
     </todo-panel>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VssConfiguration">
     <CheckoutOptions>
@@ -412,21 +462,21 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1600769634075" />
-    <state width="1323" height="17" key="GridCell.Tab.0.bottom" timestamp="1600778150504">
+    <state width="1323" height="66" key="GridCell.Tab.0.bottom" timestamp="1600802543796">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="17" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1600778150504" />
-    <state width="1323" height="17" key="GridCell.Tab.0.center" timestamp="1600778150504">
+    <state width="1323" height="66" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1600802543796" />
+    <state width="1323" height="66" key="GridCell.Tab.0.center" timestamp="1600802543796">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="17" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1600778150504" />
-    <state width="1323" height="17" key="GridCell.Tab.0.left" timestamp="1600778150504">
+    <state width="1323" height="66" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1600802543796" />
+    <state width="1323" height="66" key="GridCell.Tab.0.left" timestamp="1600802543796">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="17" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1600778150504" />
-    <state width="1323" height="17" key="GridCell.Tab.0.right" timestamp="1600778150504">
+    <state width="1323" height="66" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1600802543796" />
+    <state width="1323" height="66" key="GridCell.Tab.0.right" timestamp="1600802543796">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="17" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1600778150504" />
+    <state width="1323" height="66" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1600802543796" />
   </component>
 </project>
