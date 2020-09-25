@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -18,10 +17,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+public class Assignment1WithOutBase {
 
-public class Assignment1 {
-
+//*********Normal without base*********************
     ThreadLocal<WebDriver> driver=new ThreadLocal<>();
 
     @BeforeTest
@@ -48,7 +46,7 @@ public class Assignment1 {
         Boolean b =   mainOperation();
         Assert.assertTrue(b);
     }
-//Validate Add to Cart Functionality
+    //***************Validate Add to Cart Functionality***************
     @Test
     public void test3(){
         startOperationBegin();
@@ -58,15 +56,7 @@ public class Assignment1 {
     }
 
     public void addProduct(){
-        //getText of shoes 1st
-        //cllick shoes
-        //switch to new tab
-        //select size, add to cart
-        //switch to parent tab
-        //getText of shoes 2nd
-        //cllick shoes 2nd
-        //switch to new tab
-        //select size, add to cart
+
         Assignment1Definition obj1 = new Assignment1Definition(driver.get());
         try {
             Thread.sleep(3000);
@@ -78,20 +68,97 @@ public class Assignment1 {
         obj1.clickFirstShoe().click();
 
 //        Set<String> windows =	driver.getWindowHandles();
+//Thread.sleep
 
-        Set<String> windows = getWebDriver().getWindowHandles();
-
+        Set<String> windows =   driver.get().getWindowHandles();
 
         Iterator<String> itrWindows = windows.iterator();
-        System.out.println("itrWindows 1 = "+itrWindows.next());
-        System.out.println("itrWindows 2 = "+itrWindows.next());
-
-
-//        obj1.selectShoeSize().click();
+        String parentWindow=itrWindows.next();
+        String child1Window=itrWindows.next();
 
 
 
+        driver.get().switchTo().window(child1Window);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        obj1.selectShoeSize().click();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        obj1.selectAddToCart().click();
 
+        System.out.println("Done");
+
+
+////***************switch to parent window***************
+
+        driver.get().switchTo().window(parentWindow);
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+//***********Selecting 2nd shoe*******************
+        String shoeTowTextFromList = obj1.getTextOfShoeSecond().getText();
+        System.out.println("shoeTowTextFromList = "+shoeTowTextFromList);
+        obj1.clickSecondShoe().click();
+
+//***********switching to child window***********
+        Set<String> windows2 =   driver.get().getWindowHandles();
+        Iterator<String> itrWindows2 = windows2.iterator();
+        String parentWindow1=itrWindows2.next();
+        String childWindow1=itrWindows2.next();
+        String childWindow2=itrWindows2.next();
+
+        driver.get().switchTo().window(childWindow2);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
+        obj1.selectShoeSize().click();
+        obj1.selectAddToCart().click();
+        System.out.println("Done");
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+////***************Checking if the shoe are selected correct in add to cart***************
+
+        String addToCartGetShoeOneText =    obj1.getAddToCartShoeOneText().getText();
+        String addToCartGetShoeSecondText =    obj1.getAddToCartShoeTwoText().getText();
+        System.out.println("************** = ");
+        System.out.println("addToCartGetShoeOneText = "+addToCartGetShoeOneText);
+        System.out.println("shoeOneTextFromList = "+shoeOneTextFromList);
+        System.out.println("addToCartGetShoeSecondText = "+addToCartGetShoeSecondText);
+        System.out.println("shoeTowTextFromList = "+shoeTowTextFromList);
+
+        Assert.assertTrue(addToCartGetShoeOneText.contains(shoeOneTextFromList));
+        Assert.assertTrue(addToCartGetShoeSecondText.contains(shoeTowTextFromList));
+
+
+////****************Now checking total price of the two shoe**************************
+
+        String shoePriceOne = (obj1.getAddToCartShoePriceOne().getText().split("\u20B9")[1]);
+        int shoePriceOneInt=Integer.parseInt(shoePriceOne);
+        String shoePriceTwo = obj1.getAddToCartShoePriceTwo().getText().split("\u20B9")[1];
+        int shoePriceTwoInt=Integer.parseInt(shoePriceTwo);
+        String getTotal = obj1.getAddToCartTotalPrice().getText().split("\u20B9")[1];
+        int getTotalInt=Integer.parseInt(getTotal);
+
+        int shoeTotalOfParticualrShoe = shoePriceOneInt+shoePriceTwoInt;
+
+        Assert.assertTrue(getTotalInt==shoeTotalOfParticualrShoe);
 
     }
 
@@ -151,13 +218,10 @@ public class Assignment1 {
 
     public  Boolean mainOperation(){
 
-
-   //////////////////////////******************************//////////////////////////////
-
         //**********price xpath, checking price is in asecding order*****************
         Assignment1SortPrice obj = new Assignment1SortPrice(driver.get());
         Boolean orderBoolean;
-        obj.getBoolean();
+        obj.getBoolean(false);
 
 //****pagination page 2***********
         Assignment1Definition obj1 = new Assignment1Definition(driver.get());
@@ -178,12 +242,12 @@ public class Assignment1 {
 
 
 
-        orderBoolean =obj.getBoolean();
+        orderBoolean =obj.getBoolean(true);
         System.out.println("orderBoolean = "+orderBoolean);
 
 //        Assert.assertTrue(orderBoolean);
 
-return orderBoolean;
+        return orderBoolean;
     }
 
     public void startOperationBegin(){
@@ -194,7 +258,7 @@ return orderBoolean;
         String product =configuration.getData(0, 0, 0);
         String sortItem= configuration.getData(0, 0, 1);
 
-       doStartingOpeartion(product,sortItem);
+        doStartingOpeartion(product,sortItem);
 
 
     }
@@ -341,3 +405,8 @@ return orderBoolean;
 
 
 }
+
+
+
+
+

@@ -18,7 +18,7 @@ public class Assignment1SortPrice {
         this.driver=driver;
     }
 
-    public Boolean getBoolean(){
+    synchronized public Boolean getBoolean(Boolean value){
 
         List<WebElement> priceList = driver.findElements(By.xpath("//div[@class='_1vC4OE']"));
         Iterator<WebElement> iterate_priceList = priceList.iterator();
@@ -38,7 +38,13 @@ public class Assignment1SortPrice {
         System.out.println("a2 = "+a2);
         System.out.println("Size of A1 = "+a1.size());
 //        System.out.println(a1.equals(a2));
+
         Boolean isTwoArraySame = a1.equals(a2);
+
+        if(value){
+            a1=null;
+            a2=null;
+        }
         return isTwoArraySame;
     }
 

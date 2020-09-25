@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="TestSuite" >
+<suite name="TestSuite"  thread-count="2" parallel="methods">
 
-    <test name="Validating User Login">
+    <test name="Assignment One">
+        <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="firstGroup.Assignment1">
-                        <methods>
-
-                            <include name="test3"/>
-                        </methods>
+            <class name="firstGroup.MainPage">
+                <methods>
+                    <include name="test1"/>
+                    <include name="test2"/>
+                </methods>
             </class>
         </classes>
 
